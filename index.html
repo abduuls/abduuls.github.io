@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdul Haseeb</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Abdul Haseeb: Oracle database and software developer in Hagenberg, Austria. PL/SQL, PHP, JavaScript and Flutter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Theme "Nuit d'or": deep-navy luxury — Bleu Abysse ground, Bleu Nuit / Marine surfaces, Blanc crème text, Golden Vibes gold accent, Bleu Horizon as the live blue. Fraunces serif display, Geist body. Holds the navy look in both light and dark systems. */
+:root {
+  --bg: #05102d; --surface: #101d3e; --raised: #1e2e58; --line: #2c3e66;
+  --ink: #fff7e3; --muted: #a7b6d4; --accent: #cdb178; --accent-ink: #081330; --sky: #3d6ac1;
+  --ochre: #dfcba7; --canvas-edge: rgba(0,0,0,.55);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #05102d; --surface: #101d3e; --raised: #1e2e58; --line: #2c3e66;
+    --ink: #fff7e3; --muted: #a7b6d4; --accent: #cdb178; --accent-ink: #081330; --sky: #3d6ac1;
+    --ochre: #dfcba7; --canvas-edge: rgba(0,0,0,.55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #05102d; --surface: #101d3e; --raised: #1e2e58; --line: #2c3e66;
+  --ink: #fff7e3; --muted: #a7b6d4; --accent: #cdb178; --accent-ink: #081330; --sky: #3d6ac1;
+  --ochre: #dfcba7; --canvas-edge: rgba(0,0,0,.55);
+  color-scheme: dark;
+}
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg); color: var(--ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  font-family: Geist, system-ui, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased;
+}
+.font-display { font-optical-sizing: auto; }
+.goldgrad { background: linear-gradient(100deg, #b89343, #cdb178 45%, #dfcba7); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.orgcard { transition: transform .2s ease, box-shadow .25s ease; }
+.orgcard:hover { transform: translateY(-2px); box-shadow: 0 10px 26px -10px rgba(0,0,0,.7), 0 0 0 2px color-mix(in srgb, var(--accent) 60%, transparent); }
+.idcard { position: relative; z-index: 2; border-radius: 20px; overflow: hidden; background: linear-gradient(161deg, #122146 0%, #060e24 56%, #0c1836 100%); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: 0 46px 74px -34px rgba(0,0,0,.9), 0 2px 0 rgba(255,255,255,.04) inset; }
+.idcard::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 50% at 12% -6%, rgba(255,255,255,.12), transparent 55%), radial-gradient(95% 55% at 108% 112%, color-mix(in srgb, var(--sky) 30%, transparent), transparent 60%); }
+.idslot { position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 66px; height: 13px; border-radius: 7px; background: #05102d; box-shadow: inset 0 2px 3px rgba(0,0,0,.95), 0 1px 0 rgba(255,255,255,.06); z-index: 6; }
+.idhead { position: relative; z-index: 5; display: flex; align-items: flex-start; justify-content: space-between; padding: 42px 22px 0; }
+.idmark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(140deg, #dfcba7, #cdb178 45%, #b89343); color: #0a1430; font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 15px; letter-spacing: .5px; box-shadow: 0 6px 14px -6px rgba(0,0,0,.6); }
+.idkicker { font-family: "Geist Mono", ui-monospace, monospace; font-size: 9.5px; line-height: 1.55; letter-spacing: .18em; text-transform: uppercase; text-align: right; color: color-mix(in srgb, var(--ink) 58%, transparent); }
+.idphoto { position: relative; z-index: 5; margin: 16px 22px 0; border-radius: 14px; overflow: hidden; aspect-ratio: 1 / 1; border: 1px solid color-mix(in srgb, #fff 12%, transparent); box-shadow: 0 14px 30px -14px rgba(0,0,0,.85); }
+.idphoto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+.idname { position: relative; z-index: 5; padding: 18px 22px 0; font-family: Geist, system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -.01em; line-height: 1; color: #fff7e3; }
+.idtitle { position: relative; z-index: 5; padding: 9px 22px 0; font-family: Geist, system-ui, sans-serif; font-weight: 600; font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+.idfooter { position: relative; z-index: 5; display: flex; align-items: center; gap: 18px; padding: 18px 22px 22px; }
+.idfooter .k { display: block; font-family: "Geist Mono", ui-monospace, monospace; font-size: 8.5px; letter-spacing: .2em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 52%, transparent); }
+.idfooter .v { display: block; margin-top: 4px; font-family: Geist, system-ui, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: #fff7e3; }
+.idsep { width: 1px; align-self: stretch; background: color-mix(in srgb, #fff 14%, transparent); }
+[hidden] { display: none !important; }
+.gutter { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { text-wrap: balance; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 10px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: "Geist Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.eyebrow .dab { width: 20px; height: 12px; background: var(--accent); border-radius: 60% 40% 55% 45% / 55% 60% 40% 45%; transform: rotate(-6deg); flex: none; }
+.grid-bg {
+  background-image:
+    radial-gradient(42% 46% at 82% 8%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+    radial-gradient(40% 44% at 6% 92%, color-mix(in srgb, var(--sky) 10%, transparent), transparent 72%),
+    radial-gradient(36% 40% at 60% 50%, color-mix(in srgb, var(--ochre) 7%, transparent), transparent 70%);
+}
+.glow { background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 30%, transparent), transparent); filter: blur(18px); }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 1px 0 color-mix(in srgb, #fff 7%, transparent) inset, 0 16px 38px -26px var(--canvas-edge);
+}
+.btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 4px; padding: 12px 22px; font-weight: 500; font-size: 15px; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--accent) 88%, #000); }
+.btn-ghost { border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.arrow { transition: transform .2s ease; }
+a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
+.marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); overflow: hidden; }
+.track { display: flex; gap: 16px; width: max-content; animation: slide 46s linear infinite; }
+.track.rev { animation-direction: reverse; animation-duration: 52s; }
+.marquee:hover .track { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(calc(-50% - 8px)); } }
+.logo-chip { width: 46px; height: 46px; border-radius: 6px; display: grid; place-items: center; background: #faf7ef; box-shadow: 0 0 0 1px var(--line); flex: none; }
+.logo-chip svg { width: 23px; height: 23px; }
+.logo-chip svg.g { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.work-img { background: var(--raised); border-radius: 6px; overflow: hidden; position: relative; aspect-ratio: 16 / 11; box-shadow: 0 0 0 1px var(--line) inset; }
+.work-card:hover .work-img > * { transform: scale(1.03); }
+.work-img > * { transition: transform .5s ease; }
+.tl-dot { width: 14px; height: 14px; background: var(--accent); border-radius: 60% 40% 55% 45% / 55% 60% 40% 45%; box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 20%, transparent); }
+.num { font-variant-numeric: tabular-nums; }
+.framed { position: relative; background: var(--raised); border-radius: 3px; box-shadow: 0 0 0 1px var(--line), 0 0 0 10px var(--surface), 0 0 0 11px var(--line), 0 26px 50px -30px var(--canvas-edge); }
+.swatch { width: 100%; aspect-ratio: 1; border-radius: 4px; box-shadow: 0 0 0 1px var(--canvas-edge) inset; }
+video { background: #000; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .track { animation: none; }
+  .btn, .arrow, .work-img > * { transition: none; }
+  .mw-blk { transition: none !important; }
+}
+/* ---- Milestone wall (themed) ---- */
+.mw { position: relative; border: 1px solid var(--line); border-radius: 26px; overflow: hidden;
+  background:
+    radial-gradient(ellipse 48% 58% at 14% 0%, rgba(205,177,120,.12), transparent 60%),
+    radial-gradient(ellipse 52% 62% at 86% 2%, rgba(61,106,193,.16), transparent 60%),
+    linear-gradient(180deg, #13214a, #0c1733 72%);
+  box-shadow: inset 0 1px 0 rgba(205,177,120,.16), inset 0 0 130px rgba(0,0,0,.38);
+  padding: 34px 14px 24px;
+}
+.mw-stage { position: relative; }
+.mw-fit { transform-origin: top center; position: relative; }
+.mw-wall { display: flex; flex-direction: column-reverse; align-items: center; gap: 5px; padding: 0 20px; width: max-content; margin: 0 auto; position: relative; z-index: 2; }
+.mw-row { display: flex; gap: 5px; align-items: flex-end; }
+.mw-shelf { position: absolute; left: 50%; bottom: -5px; transform: translateX(-50%); height: 14px; border-radius: 5px; background: linear-gradient(180deg, #243457, #0b1631); box-shadow: 0 12px 26px -8px rgba(0,0,0,.75), inset 0 1px 0 rgba(205,177,120,.28), inset 0 -2px 0 rgba(0,0,0,.4); z-index: 1; }
+.mw-blk {
+  --h: 50px; height: var(--h); min-width: var(--w, 120px); padding: 0 17px; box-sizing: border-box;
+  display: flex; align-items: center; justify-content: center; white-space: nowrap;
+  font-size: var(--fs, 18px); font-weight: 600; line-height: 1; letter-spacing: .2px;
+  color: var(--ink); cursor: pointer; border-radius: 11px; position: relative;
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,.016) 0 1px, transparent 1px 4px), linear-gradient(180deg, #273a66, #172549);
+  border: 1px solid rgba(205,177,120,.24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), inset 0 -3px 0 rgba(0,0,0,.30), 0 8px 18px -9px rgba(0,0,0,.7);
+  transform: translate(0, var(--dy, 0px)) rotate(var(--r, 0deg));
+  transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s ease, filter .22s ease;
+  will-change: transform;
+}
+.mw-blk .yr { margin-left: 9px; font-family: "Geist Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: .5px; padding: 2px 7px; border-radius: 999px; background: rgba(0,0,0,.24); color: var(--accent); }
+.mw-blk.thin { --h: 34px; --fs: 14px !important; opacity: .96; }
+.mw-blk.gold { color: #2a1a05; background-image: linear-gradient(180deg, #f0ddb8, #d8b981 48%, #bc9647); border-color: rgba(255,255,255,.5); box-shadow: inset 0 1px 0 rgba(255,255,255,.55), inset 0 -3px 0 rgba(120,80,20,.3), 0 10px 24px -9px rgba(205,147,67,.6); }
+.mw-blk.gold .yr { background: rgba(42,26,5,.16); color: #2a1a05; }
+.mw-blk.sky  { color: #eef4ff; background-image: linear-gradient(180deg, #4a78cf, #274184); border-color: rgba(205,177,120,.45); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -3px 0 rgba(0,0,0,.3), 0 10px 24px -9px rgba(61,106,193,.55); }
+.mw-blk:hover { transform: translate(0, calc(var(--dy, 0px) - 4px)) rotate(var(--r, 0deg)) scale(1.035); filter: brightness(1.06); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 16px 26px -12px rgba(0,0,0,.75); }
+.mw-blk.is-selected { transform: translate(0, -9px) rotate(var(--r, 0deg)) scale(1.07); box-shadow: 0 20px 32px -12px rgba(0,0,0,.8), 0 0 24px -2px rgba(205,177,120,.5), 0 0 0 1.5px var(--accent); z-index: 5; }
+.mw-gap { height: 1px; }
+.mw-blk.pending { transform: translate(0, -110vh) rotate(var(--r)); opacity: 0; transition: none; }
+.mw-blk.dropping { transition: transform .58s cubic-bezier(.3,1.5,.5,1), opacity .2s ease; }
+.mw-blk.fallen { transition: transform var(--fall-t, .8s) cubic-bezier(.55,0,.85,.55); transition-delay: var(--delay, 0s); transform: translate(var(--fx), var(--fy)) rotate(var(--fr)); pointer-events: none; }
+.mw-panel { margin-top: 26px; display: grid; gap: 18px; grid-template-columns: 1fr auto; align-items: center; }
+.mw-note { position: relative; background: linear-gradient(180deg, rgba(30,46,88,.5), var(--surface)); color: var(--ink); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 16px; padding: 16px 20px 16px 22px; min-height: 66px; box-shadow: 0 14px 36px -18px rgba(0,0,0,.7); }
+.mw-note .t { font-weight: 700; font-size: 1.18rem; color: var(--ink); }
+.mw-note .y { font-size: .85rem; color: var(--accent); margin-left: 10px; font-family: "Geist Mono", ui-monospace, monospace; letter-spacing: .5px; }
+.mw-note p { margin: 7px 0 0; color: var(--muted); line-height: 1.5; }
+.mw-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.mw-btns button { font: inherit; font-weight: 600; font-size: .92rem; cursor: pointer; padding: 11px 20px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.mw-btns button.primary { background: linear-gradient(180deg, #dfcba7, #cdb178 55%, #b89343); color: var(--accent-ink); border-color: transparent; box-shadow: 0 10px 22px -10px rgba(205,177,120,.7); }
+.mw-btns button:hover { transform: translateY(-2px); border-color: var(--accent); }
+.mw-btns button.primary:hover { box-shadow: 0 14px 26px -10px rgba(205,177,120,.85); }
+@media (max-width: 640px) { .mw-panel { grid-template-columns: 1fr; } .mw-blk { --fs: 14px; --h: 44px; } .mw-blk.thin { --fs: 12px !important; --h: 30px; } }
+/* ---- Painting carousel ---- */
+.pcar { overflow: hidden; }
+.pcar-view { position: relative; aspect-ratio: 4 / 5; background: #0a152f; }
+.pcar-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .6s ease; }
+.pcar-img.on { opacity: 1; }
+.pcar-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 999px; border: 1px solid rgba(255,247,227,.25); background: rgba(5,16,45,.55); color: var(--ink); display: grid; place-items: center; cursor: pointer; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); transition: background .15s, border-color .15s; z-index: 2; }
+.pcar-nav:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.pcar-nav.prev { left: 12px; }
+.pcar-nav.next { right: 12px; }
+.pcar-cap { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 32px 16px 13px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 10px; background: linear-gradient(0deg, rgba(5,16,45,.92), rgba(5,16,45,.5) 55%, transparent); }
+.pcar-cap .t { font-weight: 700; color: var(--ink); }
+.pcar-cap .m { color: var(--accent); font-size: .82rem; font-family: "Geist Mono", ui-monospace, monospace; }
+.pcar-dots { display: flex; gap: 8px; justify-content: center; padding: 14px; background: var(--raised); }
+.pcar-dot { width: 8px; height: 8px; border-radius: 999px; border: none; background: var(--line); cursor: pointer; padding: 0; transition: background .2s, transform .2s; }
+.pcar-dot.on { background: var(--accent); transform: scale(1.3); }
+/* ---- Language toggle ---- */
+.langtog { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.langtog button { font: inherit; font-size: 13px; font-weight: 600; padding: 6px 11px; background: transparent; color: var(--muted); border: none; cursor: pointer; transition: background .15s, color .15s; }
+.langtog button:hover { color: var(--ink); }
+.langtog button.on { background: var(--accent); color: var(--accent-ink); }
+</style>
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Geist,system-ui,Segoe UI,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:Geist Mono,ui-monospace,Menlo,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.-inset-3{inset:-.75rem}.inset-0{inset:0}.-bottom-40{bottom:-10rem}.-left-20{left:-5rem}.-left-4{left:-1rem}.-left-\[39px\]{left:-39px}.-right-20{right:-5rem}.-right-3{right:-.75rem}.-top-40{top:-10rem}.bottom-10{bottom:2.5rem}.right-\[-10\%\]{right:-10%}.top-2{top:.5rem}.top-8{top:2rem}.z-30{z-index:30}.order-1{order:1}.order-2{order:2}.m-0{margin:0}.m-auto{margin:auto}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mb-3{margin-bottom:.75rem}.ml-auto{margin-left:auto}.mr-auto{margin-right:auto}.mt-1{margin-top:.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-\[3px\]{margin-top:3px}.mt-auto{margin-top:auto}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.aspect-video{aspect-ratio:16/9}.h-1\.5{height:.375rem}.h-10{height:2.5rem}.h-2\.5{height:.625rem}.h-24{height:6rem}.h-9{height:2.25rem}.h-\[520px\]{height:520px}.h-\[620px\]{height:620px}.h-auto{height:auto}.h-full{height:100%}.max-h-\[88\%\]{max-height:88%}.w-10{width:2.5rem}.w-2\.5{width:.625rem}.w-20{width:5rem}.w-9{width:2.25rem}.w-\[300px\]{width:300px}.w-\[520px\]{width:520px}.w-\[620px\]{width:620px}.w-auto{width:auto}.w-full{width:100%}.min-w-0{min-width:0}.max-w-\[1200px\]{max-width:1200px}.max-w-\[16ch\]{max-width:16ch}.max-w-\[18ch\]{max-width:18ch}.max-w-\[260px\]{max-width:260px}.max-w-\[320px\]{max-width:320px}.max-w-\[38ch\]{max-width:38ch}.max-w-\[40ch\]{max-width:40ch}.max-w-\[420px\]{max-width:420px}.max-w-\[46ch\]{max-width:46ch}.max-w-\[52ch\]{max-width:52ch}.max-w-\[60ch\]{max-width:60ch}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes ping{75%,to{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}.select-all{-webkit-user-select:all;-moz-user-select:all;user-select:all}.scroll-mt-20{scroll-margin-top:5rem}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-x-10{-moz-column-gap:2.5rem;column-gap:2.5rem}.gap-y-4{row-gap:1rem}.self-start{align-self:flex-start}.overflow-hidden,.truncate{overflow:hidden}.truncate{text-overflow:ellipsis;white-space:nowrap}.text-wrap{text-wrap:wrap}.rounded-2xl{border-radius:1rem}.rounded-\[26px\]{border-radius:26px}.rounded-\[32px\]{border-radius:32px}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-line{border-color:var(--line)}.bg-accent{background-color:var(--accent)}.bg-bg{background-color:var(--bg)}.bg-raised{background-color:var(--raised)}.bg-sky{background-color:var(--sky)}.bg-surface{background-color:var(--surface)}.object-contain{-o-object-fit:contain;object-fit:contain}.object-cover{-o-object-fit:cover;object-fit:cover}.object-top{-o-object-position:top;object-position:top}.p-0{padding:0}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.\!px-4{padding-left:1rem!important;padding-right:1rem!important}.\!py-2{padding-top:.5rem!important;padding-bottom:.5rem!important}.\!py-2\.5{padding-top:.625rem!important;padding-bottom:.625rem!important}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-3\.5{padding-left:.875rem;padding-right:.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-16{padding-bottom:4rem}.pb-2{padding-bottom:.5rem}.pb-20{padding-bottom:5rem}.pb-4{padding-bottom:1rem}.pl-3{padding-left:.75rem}.pl-8{padding-left:2rem}.pr-7{padding-right:1.75rem}.pt-16{padding-top:4rem}.pt-2{padding-top:.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-display{font-family:Fraunces,Georgia,serif}.font-mono{font-family:Geist Mono,ui-monospace,Menlo,monospace}.\!text-sm{font-size:.875rem!important;line-height:1.25rem!important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[15px\]{font-size:15px}.text-\[clamp\(28px\2c 4vw\2c 44px\)\]{font-size:clamp(28px,4vw,44px)}.text-\[clamp\(32px\2c 4\.6vw\2c 56px\)\]{font-size:clamp(32px,4.6vw,56px)}.text-\[clamp\(34px\2c 5vw\2c 64px\)\]{font-size:clamp(34px,5vw,64px)}.text-\[clamp\(36px\2c 4vw\2c 52px\)\]{font-size:clamp(36px,4vw,52px)}.text-\[clamp\(42px\2c 7vw\2c 88px\)\]{font-size:clamp(42px,7vw,88px)}.text-\[clamp\(44px\2c 7vw\2c 88px\)\]{font-size:clamp(44px,7vw,88px)}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[0\.98\]{line-height:.98}.leading-\[1\.02\]{line-height:1.02}.leading-\[1\.04\]{line-height:1.04}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-.025em}.tracking-widest{letter-spacing:.1em}.text-accent{color:var(--accent)}.text-ink{color:var(--ink)}.text-muted{color:var(--muted)}.text-sky{color:var(--sky)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.accent-ink{accent-color:var(--ink)}.opacity-60{opacity:.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.drop-shadow-2xl{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-2xl{--tw-drop-shadow:drop-shadow(0 25px 25px rgba(0,0,0,.15))}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.hover\:border-accent:hover{border-color:var(--accent)}.hover\:text-accent:hover{color:var(--accent)}.hover\:text-ink:hover{color:var(--ink)}@media (prefers-reduced-motion:reduce){.motion-reduce\:hidden{display:none}}@media (min-width:640px){.sm\:inline-flex{display:inline-flex}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:768px){.md\:col-span-2{grid-column:span 2/span 2}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-\[1fr_1\.15fr\]{grid-template-columns:1fr 1.15fr}.md\:grid-cols-\[200px_1fr\]{grid-template-columns:200px 1fr}.md\:p-14{padding:3.5rem}.md\:p-7{padding:1.75rem}.md\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.md\:py-28{padding-top:7rem}.md\:pb-28,.md\:py-28{padding-bottom:7rem}.md\:pt-24{padding-top:6rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:1024px){.lg\:sticky{position:sticky}.lg\:top-28{top:7rem}.lg\:order-1{order:1}.lg\:order-2{order:2}.lg\:col-span-1{grid-column:span 1/span 1}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-\[1\.1fr_1fr\]{grid-template-columns:1.1fr 1fr}.lg\:grid-cols-\[1\.25fr_1fr\]{grid-template-columns:1.25fr 1fr}.lg\:grid-cols-\[1\.4fr_1fr\]{grid-template-columns:1.4fr 1fr}.lg\:grid-cols-\[1fr_1\.6fr\]{grid-template-columns:1fr 1.6fr}.lg\:grid-cols-\[1fr_1fr\]{grid-template-columns:1fr 1fr}}</style>
+
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/htm@3.1.1/dist/htm.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+const { useState, useEffect, useRef, useContext } = React;
+const html = htm.bind(React.createElement);
+const LangCtx = React.createContext('en');
+const DE = {
+  "About": "Über mich", "Skills": "Fähigkeiten", "Work": "Projekte", "Experience": "Erfahrung", "Journey": "Werdegang", "Milestones": "Meilensteine", "Painting": "Malerei", "Contact": "Kontakt", "Get in touch": "Kontakt", "Close": "Schließen", "Menu": "Menü",
+  "Open to part-time roles · Upper Austria or remote": "Offen für Teilzeitstellen · Oberösterreich oder remote",
+  "I'm Abdul, a ": "Ich bin Abdul, ", "full-stack": "Full-Stack", " Oracle & PHP developer.": "-Entwickler für Oracle & PHP.",
+  "I sit with the people who use a system, design the database behind it and build the screens on top. Now studying Interactive Media at FH Hagenberg.": "Ich setze mich mit den Menschen zusammen, die ein System nutzen, entwerfe die Datenbank dahinter und baue die Oberflächen darauf. Aktuell studiere ich Interactive Media an der FH Hagenberg.",
+  "About me": "Über mich", "My work": "Meine Projekte", "Follow me": "Folge mir",
+  "I turn what people need into working databases.": "Ich verwandle das, was Menschen brauchen, in funktionierende Datenbanken.",
+  "For almost three years I worked as a database developer at a software house in Pakistan, on the systems of GIFT University and the fintech Dollar East Exchange. I sat in meetings with deans and management to work out what they needed, then built it in Oracle, from the table design to tested PL/SQL packages.": "Fast drei Jahre habe ich als Datenbankentwickler in einem Softwarehaus in Pakistan gearbeitet, an den Systemen der GIFT University und des Fintechs Dollar East Exchange. In Meetings mit Dekanen und der Leitung habe ich herausgearbeitet, was gebraucht wurde, und es dann in Oracle umgesetzt – vom Tabellenentwurf bis zu getesteten PL/SQL-Packages.",
+  "I also did full-stack web development in PHP, HTML, CSS and JavaScript, built PowerBuilder forms and reports, and websites for small businesses. I finished my BSc in Software Engineering second in my batch and now study Interactive Media in Hagenberg.": "Außerdem habe ich Full-Stack-Webentwicklung in PHP, HTML, CSS und JavaScript gemacht, PowerBuilder-Formulare und -Berichte gebaut sowie Websites für kleine Unternehmen. Meinen BSc in Software Engineering habe ich als Zweitbester meines Jahrgangs abgeschlossen und studiere jetzt Interactive Media in Hagenberg.",
+  "See my experience": "Meine Erfahrung ansehen", "Oracle in production": "Oracle im Produktivbetrieb", " yrs": " Jahre", "Query retrieval time": "Abfragezeit", "Data-entry errors": "Eingabefehler", "CGPA, 2nd highest in batch": "Notenschnitt, 2.-bester im Jahrgang", "Built systems for": "Systeme gebaut für",
+  "My skills": "Meine Fähigkeiten", "The tools I use every day": "Die Werkzeuge, die ich täglich nutze",
+  "Strongest in Oracle and PL/SQL, with the web and mobile skills to build what sits on top of the data.": "Am stärksten in Oracle und PL/SQL, dazu die Web- und Mobile-Kenntnisse, um das zu bauen, was auf den Daten aufsetzt.",
+  "SQL tuning": "SQL-Tuning", "Data modelling": "Datenmodellierung",
+  "Production databases since 2023": "Produktivdatenbanken seit 2023", "Packages, procedures, triggers, views": "Packages, Prozeduren, Trigger, Views", "Indexing and rewrites, ~25% faster": "Indizes und Umbau, ~25% schneller", "Normalisation, ERDs, data flow diagrams": "Normalisierung, ERDs, Datenflussdiagramme", "Web front ends and client sites": "Web-Frontends und Kundenseiten", "Interactive pages and forms": "Interaktive Seiten und Formulare", "Semantic, accessible markup": "Semantisches, barrierefreies Markup", "Responsive layouts": "Responsive Layouts", "Small business websites": "Websites für kleine Unternehmen", "Desktop forms and reports": "Desktop-Formulare und -Berichte", "Roadside Helpline mobile app": "Roadside-Helpline-App", "Wireframes and UI mockups": "Wireframes und UI-Mockups", "Version control, plus SVN": "Versionskontrolle, auch SVN",
+  "Take a look at what I've built": "Ein Blick auf das, was ich gebaut habe", "Browse my GitHub": "Mein GitHub ansehen",
+  "Final-year project, team of 4. A mobile app connecting drivers with breakdown help, plus an admin dashboard. I built the back end.": "Abschlussprojekt, Team aus 4 Personen. Eine App, die Fahrer mit Pannenhilfe verbindet, dazu ein Admin-Dashboard. Ich habe das Back-End gebaut.",
+  "View case study": "Fallstudie ansehen", "Confidential — summary only": "Vertraulich – nur Kurzfassung", "University information system": "Universitäts-Informationssystem",
+  "GIFT University. The internal system behind admissions, examinations, convocation, degree verification, HR and more. I worked the modules from the database up — the schema, the PL/SQL, and the PHP forms and reports people use every day.": "GIFT University. Das interne System hinter Zulassung, Prüfungen, Promotionsfeier, Zeugnisprüfung, HR und mehr. Ich habe die Module von der Datenbank aufwärts gebaut – das Schema, das PL/SQL und die PHP-Formulare und -Berichte, die täglich genutzt werden.",
+  "Authentication & ID checks": "Authentifizierung & ID-Prüfung",
+  "Dollar East Exchange. The database side of API authentication, identity checks against NADRA, and role-based access to customer data.": "Dollar East Exchange. Die Datenbankseite der API-Authentifizierung, Identitätsprüfungen gegen NADRA und rollenbasierter Zugriff auf Kundendaten.",
+  "Security": "Sicherheit", "API request": "API-Anfrage", "Authenticate": "Authentifizieren", "NADRA ID check": "NADRA-ID-Prüfung", "Role-based access": "Rollenbasierter Zugriff",
+  "Where I've done the work": "Wo ich gearbeitet habe",
+  "Almost three years of Oracle in production, plus four years of part-time web work alongside study.": "Fast drei Jahre Oracle im Produktivbetrieb, dazu vier Jahre Teilzeit-Webarbeit neben dem Studium.",
+  "Software Engineer (Oracle Database)": "Software Engineer (Oracle-Datenbank)", "Soft Shack (Pvt.) Ltd. · Gujranwala, Pakistan · full-time": "Soft Shack (Pvt.) Ltd. · Gujranwala, Pakistan · Vollzeit",
+  "Requirement meetings with deans and management, turned into database designs.": "Anforderungs-Meetings mit Dekanen und Leitung, umgesetzt in Datenbankentwürfe.",
+  "Built new modules from scratch, such as the alumni module, tested with real data.": "Neue Module von Grund auf gebaut, etwa das Alumni-Modul, mit echten Daten getestet.",
+  "Automated the convocation process in the student database.": "Den Promotionsablauf in der Studierendendatenbank automatisiert.",
+  "Cleaned student data with PL/SQL scripts and validation rules, cutting data-entry errors by about 30%.": "Studierendendaten mit PL/SQL-Skripten und Validierungsregeln bereinigt und Eingabefehler um rund 30% gesenkt.",
+  "Added triggers and audit tables so every change to sensitive records can be traced.": "Trigger und Audit-Tabellen ergänzt, sodass jede Änderung an sensiblen Datensätzen nachvollziehbar ist.",
+  "Tuned slow queries with indexing and rewrites, cutting retrieval time by about 25%.": "Langsame Abfragen mit Indizes und Umbau optimiert und die Abfragezeit um rund 25% gesenkt.",
+  "Did full-stack web development in PHP, HTML, CSS and JavaScript, from the Oracle back end to the browser.": "Full-Stack-Webentwicklung in PHP, HTML, CSS und JavaScript – vom Oracle-Back-End bis in den Browser.",
+  "Dollar East Exchange (fintech)": "Dollar East Exchange (Fintech)",
+  "Built the database side of user authentication for the company API.": "Die Datenbankseite der Benutzer-Authentifizierung für die Firmen-API gebaut.",
+  "Wrote procedures for identity checks against NADRA, Pakistan’s national ID database.": "Prozeduren für Identitätsprüfungen gegen NADRA, Pakistans nationale Ausweisdatenbank, geschrieben.",
+  "Set up role-based access to customer and transaction data.": "Rollenbasierten Zugriff auf Kunden- und Transaktionsdaten eingerichtet.",
+  "Documentation & desktop": "Dokumentation & Desktop",
+  "Documented databases with flowcharts, data flow diagrams and indexing notes.": "Datenbanken mit Flussdiagrammen, Datenflussdiagrammen und Indexnotizen dokumentiert.",
+  "Built and maintained forms and reports in PowerBuilder 12.5.": "Formulare und Berichte in PowerBuilder 12.5 gebaut und gepflegt.",
+  "Web & Database Developer": "Web- & Datenbankentwickler", "Codverge Solutions · Pakistan · remote, part-time": "Codverge Solutions · Pakistan · remote, Teilzeit",
+  "Built and maintained websites for small business clients in PHP and WordPress.": "Websites für kleine Firmenkunden in PHP und WordPress gebaut und gepflegt.",
+  "Wrote PL/SQL and Oracle back-end code for client projects.": "PL/SQL- und Oracle-Back-End-Code für Kundenprojekte geschrieben.",
+  "Education": "Ausbildung", "Study & languages": "Studium & Sprachen", "since 10/2026": "seit 10/2026",
+  "University of Applied Sciences Upper Austria, Hagenberg Campus. Full-time, expected 2028.": "Fachhochschule Oberösterreich, Campus Hagenberg. Vollzeit, voraussichtlich 2028.",
+  "GIFT University, Gujranwala. CGPA 3.76 / 4.00, second highest in the batch.": "GIFT University, Gujranwala. Notenschnitt 3,76 / 4,00, zweitbester im Jahrgang.",
+  "View degree & CGPA letter (PDF)": "Zeugnis & Notenschnitt ansehen (PDF)", "Languages": "Sprachen", "Native": "Muttersprache", "English": "Englisch", "B2 · used daily": "B2 · täglich im Einsatz", "German": "Deutsch", "A1 · learning": "A1 · im Aufbau",
+  "Every ": "Jeder ", "block": "Baustein", " held up the next": " trägt den nächsten",
+  "The moments and skills that got me here, stacked into a wall. Tap a block to read it — or knock the whole thing down and watch it rebuild.": "Die Momente und Fähigkeiten, die mich hierher gebracht haben, zu einer Wand gestapelt. Tippe auf einen Baustein, um ihn zu lesen – oder wirf das Ganze um und sieh zu, wie es sich neu aufbaut.",
+  "Knock it down": "Umwerfen", "Rebuild": "Neu aufbauen", "Pick a block": "Wähle einen Baustein", "Each one is a moment that held up everything after it.": "Jeder ist ein Moment, der alles danach getragen hat.", "Down it goes…": "Und weg…", "And every block is still here. Hit Rebuild.": "Und jeder Baustein ist noch da. Auf „Neu aufbauen“ tippen.", "One more block in the wall — small on its own, but the ones above lean on it.": "Noch ein Baustein in der Wand – für sich klein, aber die darüber stützen sich darauf.",
+  "Communication": "Kommunikation", "Teamwork": "Teamarbeit", "Problem solving": "Problemlösung", "Curiosity": "Neugier", "Comfortable studying and working in English.": "Studium und Arbeit auf Englisch – kein Problem.",
+  "Topper": "Jahrgangsbester", "Finished near the top of my class.": "Unter den Besten meiner Klasse abgeschlossen.", "University societies": "Hochschulgruppen", "Active in campus societies.": "Aktiv in Hochschulgruppen.", "Volunteer work": "Ehrenamt", "Gave my time where it helped.": "Meine Zeit dort gegeben, wo sie geholfen hat.", "My way to switch off — there is a corner of this site for it.": "Mein Ausgleich – es gibt eine Ecke auf dieser Seite dafür.",
+  "Scholarship": "Stipendium", "Studied on merit support.": "Studium mit Leistungsförderung.", "A part-time job — first paycheck, first lessons in showing up.": "Ein Teilzeitjob – erster Lohn, erste Lektionen im Dranbleiben.", "Part-time web dev": "Webdev (Teilzeit)", "Built sites for small clients while studying.": "Websites für kleine Kunden neben dem Studium.",
+  "BS Software Engineering": "BSc Software Engineering", "My degree at GIFT University.": "Mein Abschluss an der GIFT University.", "Built the back end for a breakdown-help app — my final-year project.": "Das Back-End einer Pannenhilfe-App gebaut – mein Abschlussprojekt.", "The stack I went deep on.": "Der Stack, in den ich tief eingestiegen bin.",
+  "Graduation": "Abschluss", "Degree in hand.": "Abschluss in der Tasche.", "First job": "Erster Job", "Oracle developer at Soft Shack.": "Oracle-Entwickler bei Soft Shack.", "Authentication and NADRA checks for Dollar East Exchange.": "Authentifizierung und NADRA-Prüfungen für Dollar East Exchange.", "UIS project": "UIS-Projekt", "Worked the university system’s modules from the database up.": "Die Module des Uni-Systems von der Datenbank aufwärts gebaut.", "Abroad": "Ins Ausland", "Moved to Austria.": "Nach Österreich gezogen.", "Studying in Hagenberg, Austria.": "Studium in Hagenberg, Österreich.",
+  "Off the canvas": "Neben der Leinwand", "I paint, too.": "Ich male auch.",
+  "Away from the screen I paint and draw. It is where I slow down, mix a colour until it is right, and look hard at how things are actually made. The same eye for composition, contrast and patience goes straight back into the interfaces and data models I build.": "Abseits des Bildschirms male und zeichne ich. Dort komme ich zur Ruhe, mische eine Farbe, bis sie stimmt, und schaue genau hin, wie Dinge wirklich gemacht sind. Derselbe Blick für Komposition, Kontrast und Geduld fließt direkt in die Oberflächen und Datenmodelle zurück, die ich baue.",
+  "A working palette": "Eine Arbeitspalette", "Mosque & calligraphy": "Moschee & Kalligrafie", "Acrylic on canvas": "Acryl auf Leinwand", "Blossom over an old house": "Blüten über einem alten Haus", "Whirling dervish": "Wirbelnder Derwisch", "Graphite on paper": "Graphit auf Papier", "Portrait study": "Porträtstudie", "Ballpoint pen": "Kugelschreiber",
+  "Interested in working together? Let's talk.": "Interesse an einer Zusammenarbeit? Sprechen wir.",
+  "Open to part-time roles in database, backend, frontend or web development in Upper Austria or remote.": "Offen für Teilzeitstellen in Datenbank-, Backend-, Frontend- oder Webentwicklung in Oberösterreich oder remote.",
+  "Email me": "E-Mail schreiben", "Copied": "Kopiert", "Copy": "Kopieren", "Oracle Database & Software Developer": "Oracle-Datenbank- & Softwareentwickler", "Hagenberg, Austria": "Hagenberg, Österreich",
+  "© 2026 Abdul Haseeb · Hagenberg, Austria": "© 2026 Abdul Haseeb · Hagenberg, Österreich", "Email": "E-Mail",
+  "Back to all work": "Zurück zu allen Projekten", "Case study · Final-year project · 07/2022 – 10/2023": "Fallstudie · Abschlussprojekt · 07/2022 – 10/2023",
+  "A mobile app that connects drivers with breakdown help (fuel delivery, tyre repair and mechanics), with a web dashboard for admins.": "Eine App, die Fahrer mit Pannenhilfe verbindet (Spritlieferung, Reifenreparatur und Mechaniker), mit einem Web-Dashboard für Admins.",
+  "4 people": "4 Personen", "My role": "Meine Rolle", "Back end & database": "Back-End & Datenbank", "Where": "Wo", "View code on GitHub": "Code auf GitHub ansehen", "See it in action": "In Aktion sehen",
+  "Screen recording, about 4 minutes, no sound: sign-up, choosing a service, live tracking on the map and the admin panel.": "Bildschirmaufnahme, rund 4 Minuten, ohne Ton: Registrierung, Service-Auswahl, Live-Tracking auf der Karte und das Admin-Panel.",
+  "Screens": "Ansichten", "Mobile app and dashboard": "App und Dashboard", "Mobile application": "Mobile App", "Drivers pick a service, sign in and choose a nearby rated vendor.": "Fahrer wählen einen Service, melden sich an und wählen einen bewerteten Anbieter in der Nähe.", "Admins log in to a web dashboard to manage the service.": "Admins melden sich in einem Web-Dashboard an, um den Dienst zu verwalten.",
+  "What I built": "Was ich gebaut habe", "The back end": "Das Back-End", "Orders": "Aufträge", "Service requests": "Service-Anfragen", "Drivers request fuel, a tyre change or a mechanic, and the request is stored and routed as an order.": "Fahrer fordern Sprit, einen Reifenwechsel oder einen Mechaniker an; die Anfrage wird als Auftrag gespeichert und weitergeleitet.", "Location": "Standort", "Live location tracking": "Live-Standortverfolgung", "The driver’s and helper’s positions are tracked so help can find the car.": "Die Positionen von Fahrer und Helfer werden verfolgt, damit die Hilfe das Auto findet.", "Payments": "Zahlungen", "Each completed job is recorded with its payment.": "Jeder erledigte Auftrag wird mit seiner Zahlung erfasst.", "Ratings": "Bewertungen", "Drivers rate the vendor after the job is done.": "Fahrer bewerten den Anbieter, nachdem der Auftrag erledigt ist.",
+  "Case study · Soft Shack · 10/2023 – 06/2026": "Fallstudie · Soft Shack · 10/2023 – 06/2026", "University Information System": "Universitäts-Informationssystem",
+  "The system GIFT University runs on — admissions, examinations, convocation, degree verification, HR, transport and accounts, all in one place. I worked the Oracle back end and the PHP pages behind several of its modules.": "Das System, auf dem die GIFT University läuft – Zulassung, Prüfungen, Promotionsfeier, Zeugnisprüfung, HR, Transport und Finanzen, alles an einem Ort. Ich habe das Oracle-Back-End und die PHP-Seiten hinter mehreren Modulen gebaut.",
+  "Scope": "Umfang", "Multiple modules": "Mehrere Module", "Back end & PHP": "Back-End & PHP", "How it started": "Wie es begann", "From a meeting to a module": "Vom Meeting zum Modul",
+  "Each module started as a conversation. I sat with the people who would actually use it — the deans, the IT director and the office behind each process — to understand what they needed and brainstorm how it should work. For convocation that meant the examination office and the team running the ceremony; for degree verification, the people who vouch for a graduate's record.": "Jedes Modul begann als Gespräch. Ich setzte mich mit den Menschen zusammen, die es tatsächlich nutzen würden – den Dekanen, dem IT-Leiter und dem Büro hinter jedem Prozess – um zu verstehen, was sie brauchten, und gemeinsam zu überlegen, wie es funktionieren sollte. Bei der Promotionsfeier waren das das Prüfungsamt und das Team, das die Feier ausrichtet; bei der Zeugnisprüfung die Menschen, die für die Unterlagen eines Absolventen einstehen.",
+  "Once we agreed on the requirements, the shape of the data usually became clear. I turned those conversations into a design and built it from the database up, then came back to the same stakeholders to check it against what they had in mind.": "Sobald wir uns über die Anforderungen einig waren, wurde die Form der Daten meist klar. Ich machte aus diesen Gesprächen einen Entwurf, baute ihn von der Datenbank aufwärts und ging dann zu denselben Beteiligten zurück, um ihn mit ihren Vorstellungen abzugleichen.",
+  "My process": "Mein Vorgehen", "Database first, then up": "Zuerst die Datenbank, dann nach oben", "Database": "Datenbank", "Design the schema": "Das Schema entwerfen", "I modelled the tables, keys and relationships for the module first, so every piece of data had one correct home.": "Zuerst modellierte ich die Tabellen, Schlüssel und Beziehungen des Moduls, damit jedes Datum genau einen richtigen Ort hat.", "Write the procedures": "Die Prozeduren schreiben", "The real work — validation, calculations and the heavy queries — went into Oracle as PL/SQL packages and procedures.": "Die eigentliche Arbeit – Validierung, Berechnungen und die schweren Abfragen – wanderte als PL/SQL-Packages und -Prozeduren nach Oracle.", "Build the pages": "Die Seiten bauen", "On top of that I built the PHP forms people fill in and the reports they read back out.": "Darauf baute ich die PHP-Formulare, die ausgefüllt werden, und die Berichte, die man wieder ausliest.",
+  "Across the system": "Quer durchs System", "The system spans the whole university. I contributed back-end and pages across several of its modules, with convocation and degree verification the two I spent most time on.": "Das System umfasst die ganze Universität. Ich habe Back-End und Seiten für mehrere Module beigetragen, wobei ich bei der Promotionsfeier und der Zeugnisprüfung am meisten Zeit verbracht habe.",
+  "Admission": "Zulassung", "Examination": "Prüfungen", "Convocation": "Promotionsfeier", "Degree verification": "Zeugnisprüfung", "Student Affairs": "Studierendenservice", "Accounts": "Finanzen", "Centres": "Zentren",
+  "Registering graduating students and their guests, working out who is eligible, and producing the lists, working sheets and registration reports the ceremony runs on.": "Absolventinnen und Absolventen und ihre Gäste registrieren, die Berechtigung klären und die Listen, Arbeitsblätter und Anmeldeberichte erstellen, auf denen die Feier läuft.",
+  "Checking a graduate’s degree against the university’s own records when an employer or body asks, and keeping a record of each verification.": "Den Abschluss einer Person gegen die eigenen Unterlagen der Universität prüfen, wenn ein Arbeitgeber oder eine Stelle anfragt, und jede Prüfung dokumentieren.",
+  "Inside the system": "Im System", "A look under the hood": "Ein Blick unter die Haube",
+  "The admin console. Convocation alone runs across eight screens — eligibility, working sheets, lists and the final registration.": "Die Admin-Konsole. Allein die Promotionsfeier läuft über acht Masken – Berechtigung, Arbeitsblätter, Listen und die finale Anmeldung.",
+  "A live registration screen. Roll numbers, names, CNICs and phone numbers are masked here — this is a public page.": "Eine echte Anmeldemaske. Matrikelnummern, Namen, CNICs und Telefonnummern sind hier maskiert – dies ist eine öffentliche Seite.",
+  "Alongside it": "Daneben", "The public website": "Die öffentliche Website",
+  "GIFT University's public website, part of the same family of applications that sits around the internal system.": "Die öffentliche Website der GIFT University, Teil derselben Anwendungsfamilie rund um das interne System."
+};
+function useT() { const l = useContext(LangCtx); return function (s) { return (l === 'de' && DE[s] !== undefined) ? DE[s] : s; }; }
+const ICONS = [{"label": "Oracle 19c", "color": "#F80000", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M16.412 4.412h-8.82a7.588 7.588 0 0 0-.008 15.176h8.828a7.588 7.588 0 0 0 0-15.176zm-.193 12.502H7.786a4.915 4.915 0 0 1 0-9.828h8.433a4.914 4.914 0 1 1 0 9.828z\"/></svg>"}, {"label": "PL/SQL", "color": "#0f9d94", "svg": "<svg viewBox=\"0 0 24 24\" class=\"g\"><path d=\"M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16\"/></svg>"}, {"label": "SQL tuning", "color": "#ff6b57", "svg": "<svg viewBox=\"0 0 24 24\" class=\"g\"><path d=\"M13 2 4 14h7l-1 8 9-12h-7z\"/></svg>"}, {"label": "Data modelling", "color": "#7b61f0", "svg": "<svg viewBox=\"0 0 24 24\" class=\"g\"><rect x=\"2\" y=\"3\" width=\"8\" height=\"6\" rx=\"1\"/><rect x=\"14\" y=\"15\" width=\"8\" height=\"6\" rx=\"1\"/><path d=\"M6 9v9h8M18 15V6h-8\"/></svg>"}, {"label": "PHP", "color": "#777BB4", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z\"/></svg>"}, {"label": "JavaScript", "color": "#F7DF1E", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z\"/></svg>"}, {"label": "HTML5", "color": "#E34F26", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z\"/></svg>"}, {"label": "CSS3", "color": "#1572B6", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z\"/></svg>"}, {"label": "WordPress", "color": "#21759B", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0\"/></svg>"}, {"label": "PowerBuilder", "color": "#3b8cf0", "svg": "<svg viewBox=\"0 0 24 24\" class=\"g\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 9h18M8 13h8M8 16h5\"/></svg>"}, {"label": "Flutter", "color": "#02569B", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z\"/></svg>"}, {"label": "Figma", "color": "#F24E1E", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z\"/></svg>"}, {"label": "Git", "color": "#F05032", "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187\"/></svg>"}];
+const EMAIL = 'devabdulhaseeb@gmail.com';
+const GITHUB = 'https://github.com/abduuls';
+const LINKEDIN = 'https://linkedin.com/in/abdul-haseeb12';
+
+const SKILL_TEXT = {
+  'Oracle 19c': 'Production databases since 2023',
+  'PL/SQL': 'Packages, procedures, triggers, views',
+  'SQL tuning': 'Indexing and rewrites, ~25% faster',
+  'Data modelling': 'Normalisation, ERDs, data flow diagrams',
+  'PHP': 'Web front ends and client sites',
+  'JavaScript': 'Interactive pages and forms',
+  'HTML5': 'Semantic, accessible markup',
+  'CSS3': 'Responsive layouts',
+  'WordPress': 'Small business websites',
+  'PowerBuilder': 'Desktop forms and reports',
+  'Flutter': 'Roadside Helpline mobile app',
+  'Figma': 'Wireframes and UI mockups',
+  'Git': 'Version control, plus SVN'
+};
+
+const Arrow = () => html`<svg className="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const GhIcon = () => html`<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>`;
+const InIcon = () => html`<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>`;
+const MailIcon = () => html`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`;
+
+function Logo({ icon }) {
+  const style = { '--c': icon.color };
+  const inner = icon.svg.replace('<svg ', '<svg style="fill:' + (icon.svg.indexOf('class="g"') > -1 ? 'none;stroke:' : '') + icon.color + '" ');
+  const bg = icon.label === 'JavaScript' ? { background: '#323330' } : null;
+  return html`<span className="logo-chip" style=${Object.assign({}, style, bg)} dangerouslySetInnerHTML=${{ __html: inner }}></span>`;
+}
+
+function Eyebrow({ children }) { return html`<div className="eyebrow"><span className="dab" aria-hidden="true"></span>${children}</div>`; }
+
+function LangToggle({ lang, setLang }) {
+  return html`<div className="langtog" role="group" aria-label="Language">
+    <button type="button" className=${lang === 'en' ? 'on' : ''} aria-pressed=${lang === 'en'} onClick=${() => setLang('en')}>EN</button>
+    <button type="button" className=${lang === 'de' ? 'on' : ''} aria-pressed=${lang === 'de'} onClick=${() => setLang('de')}>DE</button>
+  </div>`;
+}
+
+function Nav({ lang, setLang }) {
+  const t = useT();
+  const [open, setOpen] = useState(false);
+  const links = [['About', '#about'], ['Skills', '#skills'], ['Work', '#work'], ['Experience', '#experience'], ['Journey', '#milestones'], ['Painting', '#painting']];
+  return html`
+  <header className="sticky z-30" style=${{ top: 'env(safe-area-inset-top, 0px)', background: 'color-mix(in srgb, var(--bg) 82%, transparent)', backdropFilter: 'blur(12px)' }}>
+    <div className="gutter mx-auto max-w-[1200px] flex items-center gap-6 py-4">
+      <a href="#top" className="font-display text-xl font-extrabold tracking-tight mr-auto">Abdul<span className="text-accent">.</span></a>
+      <nav className="hidden md:flex items-center gap-7 text-[15px] text-muted">
+        ${links.map(([l, h]) => html`<a key=${h} href=${h} className="hover:text-ink transition-colors">${t(l)}</a>`)}
+      </nav>
+      <${LangToggle} lang=${lang} setLang=${setLang}/>
+      <a href="#contact" className="btn btn-primary hidden sm:inline-flex !py-2.5">${t('Get in touch')} <${Arrow}/></a>
+      <button type="button" className="md:hidden btn btn-ghost !px-4 !py-2" aria-expanded=${open} onClick=${() => setOpen(!open)}>${open ? t('Close') : t('Menu')}</button>
+    </div>
+    ${open && html`<nav className="md:hidden gutter pb-4 grid gap-1">
+      ${links.concat([['Contact', '#contact']]).map(([l, h]) => html`<a key=${h} href=${h} onClick=${() => setOpen(false)} className="py-2 text-lg">${t(l)}</a>`)}
+    </nav>`}
+  </header>`;
+}
+
+function Hero() {
+  const t = useT();
+  return html`
+  <section id="top" className="relative overflow-hidden">
+    <div className="absolute inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+    <div className="glow absolute -top-40 right-[-10%] w-[620px] h-[620px] pointer-events-none" aria-hidden="true"></div>
+    <div className="gutter relative mx-auto max-w-[1200px] pt-16 md:pt-24 pb-16 grid lg:grid-cols-[1.25fr_1fr] gap-12 items-center">
+      <div className="min-w-0">
+        <div className="hero-in inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm text-muted">
+          <span className="relative flex h-2.5 w-2.5"><span className="absolute inline-flex h-full w-full rounded-full bg-sky opacity-60 animate-ping motion-reduce:hidden"></span><span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky"></span></span>
+          ${t('Open to part-time roles · Upper Austria or remote')}
+        </div>
+        <h1 className="hero-in font-display font-extrabold tracking-tight leading-[0.98] text-[clamp(44px,7vw,88px)] mt-6">
+          ${t("I'm Abdul, a ")}<span className="goldgrad">${t('full-stack')}</span>${t(' Oracle & PHP developer.')}
+        </h1>
+        <p className="hero-in mt-6 text-lg md:text-xl text-muted max-w-[46ch] leading-relaxed">
+          ${t('I sit with the people who use a system, design the database behind it and build the screens on top. Now studying Interactive Media at FH Hagenberg.')}
+        </p>
+        <div className="hero-in mt-10 grid sm:grid-cols-3 gap-3">
+          <a href="#about" className="card group p-5 hover:border-accent transition-colors">
+            <div className="text-sm text-muted">01</div>
+            <div className="mt-6 flex items-center justify-between font-medium">${t('About me')} <${Arrow}/></div>
+          </a>
+          <a href="#work" className="card group p-5 hover:border-accent transition-colors">
+            <div className="text-sm text-muted">02</div>
+            <div className="mt-6 flex items-center justify-between font-medium">${t('My work')} <${Arrow}/></div>
+          </a>
+          <div className="card p-5">
+            <div className="text-sm text-muted">${t('Follow me')}</div>
+            <div className="mt-5 flex gap-2">
+              <a href=${GITHUB} target="_blank" rel="noopener" aria-label="GitHub" className="w-10 h-10 grid place-items-center rounded-full border border-line hover:border-accent hover:text-accent transition-colors"><${GhIcon}/></a>
+              <a href=${LINKEDIN} target="_blank" rel="noopener" aria-label="LinkedIn" className="w-10 h-10 grid place-items-center rounded-full border border-line hover:border-accent hover:text-accent transition-colors"><${InIcon}/></a>
+              <a href="#contact" aria-label="Email" className="w-10 h-10 grid place-items-center rounded-full border border-line hover:border-accent hover:text-accent transition-colors"><${MailIcon}/></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="hero-photo relative mx-auto w-full max-w-[320px]" style=${{paddingTop:'120px'}}>
+        <svg className="lanyard" viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" style=${{position:'absolute',top:'0',left:'50%',transform:'translateX(-50%)',width:'118px',height:'150px',zIndex:'4'}} aria-hidden="true">
+          <defs>
+            <linearGradient id="lanGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b89343"/><stop offset="0.5" stop-color="#dfcba7"/><stop offset="1" stop-color="#b89343"/></linearGradient>
+          </defs>
+          <rect x="47" y="-6" width="26" height="112" rx="3" fill="url(#lanGold)"/>
+          <rect x="47" y="-6" width="26" height="112" rx="3" fill="none" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+          <text x="60" y="54" text-anchor="middle" transform="rotate(-90 60 54)" fill="#3c310f" font-family="Geist, system-ui, sans-serif" font-weight="700" font-size="9" letter-spacing="2.5" opacity="0.5">ABDUL HASEEB</text>
+          <rect x="52" y="100" width="16" height="10" rx="5" fill="none" stroke="#202024" stroke-width="3"/>
+          <rect x="55" y="108" width="10" height="22" rx="4" fill="#1b1b1f"/>
+          <path d="M60 129 q-8 6 -4 16 q2 5 8 6" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div className="idcard">
+          <span className="idslot"></span>
+          <div className="idhead">
+            <span className="idmark">AH</span>
+            <span className="idkicker">FH Hagenberg<br/>Austria</span>
+          </div>
+          <div className="idphoto"><img src="photo.jpg" alt="Abdul Haseeb" width="480" height="600"/></div>
+          <div className="idname">Abdul Haseeb</div>
+          <div className="idtitle">Oracle Developer</div>
+          <div className="idfooter">
+            <div><span className="k">ID No</span><span className="v">AH-1025</span></div>
+            <div className="idsep"></div>
+            <div><span className="k">Department</span><span className="v">Database</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function Counter({ value, prefix = '', suffix = '', decimals = 0 }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const el = ref.current, obj = { v: 0 };
+    const st = ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => {
+      gsap.to(obj, { v: value, duration: 1.4, ease: 'power2.out', onUpdate: () => { el.textContent = prefix + obj.v.toFixed(decimals) + suffix; } });
+    } });
+    return () => st.kill();
+  }, []);
+  return html`<span ref=${ref} className="num">${prefix + value.toFixed(decimals) + suffix}</span>`;
+}
+
+function About() {
+  const t = useT();
+  const stats = [
+    { v: 3, prefix: '~', suffix: ' yrs', label: 'Oracle in production' },
+    { v: 25, prefix: '−', suffix: '%', label: 'Query retrieval time' },
+    { v: 30, prefix: '−', suffix: '%', label: 'Data-entry errors' },
+    { v: 3.76, decimals: 2, label: 'CGPA, 2nd highest in batch' }
+  ];
+  const orgs = [
+    { name: 'GIFT University', logo: 'logo-gift.png', url: 'https://gift.edu.pk', maxH: 68, maxW: 120 },
+    { name: 'Dollar East Exchange', logo: 'logo-dollareast.png', url: 'https://www.dollareast.com', maxH: 50, maxW: 132 },
+    { name: 'Soft Shack (Pvt.) Ltd.', logo: 'logo-softshack.png', maxH: 64, maxW: 128 },
+    { name: 'Codverge Solutions', url: 'https://codverge.com' }
+  ];
+  return html`
+  <section id="about" className="reveal gutter mx-auto max-w-[1200px] py-20 md:py-28 scroll-mt-20">
+    <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
+      <div className="min-w-0">
+        <${Eyebrow}>${t('About me')}<//>
+        <h2 className="font-display font-extrabold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.04] mt-4">${t('I turn what people need into working databases.')}</h2>
+        <div className="mt-6 grid gap-4 text-muted text-lg leading-relaxed max-w-[60ch]">
+          <p>${t('For almost three years I worked as a database developer at a software house in Pakistan, on the systems of GIFT University and the fintech Dollar East Exchange. I sat in meetings with deans and management to work out what they needed, then built it in Oracle, from the table design to tested PL/SQL packages.')}</p>
+          <p>${t('I also did full-stack web development in PHP, HTML, CSS and JavaScript, built PowerBuilder forms and reports, and websites for small businesses. I finished my BSc in Software Engineering second in my batch and now study Interactive Media in Hagenberg.')}</p>
+        </div>
+        <a href="#experience" className="btn btn-ghost mt-8">${t('See my experience')} <${Arrow}/></a>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        ${stats.map(s => html`<div key=${s.label} className="card p-6 md:p-7">
+          <div className="font-display font-extrabold text-[clamp(36px,4vw,52px)] leading-none"><${Counter} value=${s.v} prefix=${s.prefix || ''} suffix=${t(s.suffix || '')} decimals=${s.decimals || 0}/></div>
+          <div className="mt-3 text-sm text-muted">${t(s.label)}</div>
+        </div>`)}
+      </div>
+    </div>
+    <div className="mt-16 border-t border-line pt-8 grid md:grid-cols-[200px_1fr] gap-6 items-center">
+      <div className="text-sm text-muted">${t('Built systems for')}</div>
+      <div className="flex flex-wrap items-center" style=${{columnGap:'16px',rowGap:'14px'}}>
+        ${orgs.map(o => {
+          const inner = o.logo
+            ? html`<img src=${o.logo} alt=${o.name + ' logo'} loading="lazy" style=${{maxWidth:(o.maxW||128)+'px',maxHeight:(o.maxH||56)+'px',width:'auto',height:'auto',objectFit:'contain',display:'block'}}/>`
+            : html`<span className="font-display" style=${{color:'#0a1733',fontWeight:800,fontSize:'18px',lineHeight:'1.15',letterSpacing:'-0.01em',textAlign:'center'}}>${o.name}</span>`;
+          const cardStyle = {display:'flex',alignItems:'center',justifyContent:'center',width:'168px',height:'92px',padding:'0 16px',background:'#ffffff',borderRadius:'16px',boxShadow:'0 4px 18px -6px rgba(0,0,0,.6)',boxSizing:'border-box'};
+          return o.url
+            ? html`<a key=${o.name} href=${o.url} target="_blank" rel="noopener noreferrer" title=${'Visit ' + o.name} className="orgcard" style=${cardStyle}>${inner}</a>`
+            : html`<div key=${o.name} title=${o.name} style=${cardStyle}>${inner}</div>`;
+        })}
+      </div>
+    </div>
+  </section>`;
+}
+
+function SkillCard({ icon }) {
+  const t = useT();
+  return html`<div className="card flex items-center gap-4 pr-7 pl-3 py-3 w-[300px] shrink-0">
+    <${Logo} icon=${icon}/>
+    <div className="min-w-0"><div className="font-semibold">${t(icon.label)}</div><div className="text-sm text-muted truncate">${t(SKILL_TEXT[icon.label] || '')}</div></div>
+  </div>`;
+}
+
+function Skills() {
+  const t = useT();
+  const a = ICONS.slice(0, 7), b = ICONS.slice(7);
+  const row = (list, rev) => html`<div className="marquee"><div className=${'track' + (rev ? ' rev' : '')}>
+    ${list.concat(list).map((ic, i) => html`<div key=${i} aria-hidden=${i >= list.length ? 'true' : null}><${SkillCard} icon=${ic}/></div>`)}
+  </div></div>`;
+  return html`
+  <section id="skills" className="py-20 md:py-28 border-y border-line bg-surface scroll-mt-20">
+    <div className="reveal gutter mx-auto max-w-[1200px] flex flex-wrap items-end justify-between gap-6">
+      <div><${Eyebrow}>${t('My skills')}<//><h2 className="font-display font-extrabold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.04] mt-4 max-w-[16ch]">${t('The tools I use every day')}</h2></div>
+      <p className="text-muted max-w-[40ch]">${t('Strongest in Oracle and PL/SQL, with the web and mobile skills to build what sits on top of the data.')}</p>
+    </div>
+    <div className="mt-12 grid gap-4">${row(a, false)}${row(b, true)}</div>
+  </section>`;
+}
+
+function WorkVisualER() {
+  const box = (x, y, t, rows, hl) => html`<g key=${t}>
+    <rect x=${x} y=${y} width="118" height=${26 + rows.length * 18} rx="8" fill="var(--surface)" stroke=${hl ? 'var(--accent)' : 'var(--line)'} strokeWidth="1.5"/>
+    <text x=${x + 12} y=${y + 18} fill=${hl ? 'var(--accent)' : 'var(--ink)'} fontFamily="Geist Mono, monospace" fontSize="11" fontWeight="500">${t}</text>
+    ${rows.map((r, i) => html`<text key=${r} x=${x + 12} y=${y + 40 + i * 18} fill="var(--muted)" fontFamily="Geist Mono, monospace" fontSize="10">${r}</text>`)}
+  </g>`;
+  return html`<svg viewBox="0 0 400 275" className="absolute inset-0 w-full h-full" role="img" aria-label="Diagram of an alumni database with students, alumni and events tables">
+    <path d="M140 80 H200 M318 120 V170 M200 200 H140" stroke="var(--sky)" strokeWidth="1.5" strokeDasharray="4 4" fill="none"/>
+    ${box(22, 40, 'STUDENTS', ['student_id', 'program', 'cgpa'])}
+    ${box(200, 40, 'ALUMNI', ['alumni_id', 'student_id', 'employer', 'grad_year'], true)}
+    ${box(200, 170, 'EVENTS', ['event_id', 'alumni_id', 'held_on'])}
+    ${box(22, 170, 'AUDIT_LOG', ['changed_by', 'changed_at'])}
+  </svg>`;
+}
+
+function WorkVisualAuth() {
+  const t = useT();
+  const steps = ['API request', 'Authenticate', 'NADRA ID check', 'Role-based access'];
+  return html`<div className="absolute inset-0 grid place-items-center p-6">
+    <div className="grid gap-2.5 w-full max-w-[260px]">
+      ${steps.map((s, i) => html`<div key=${s} className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-2.5 text-sm" style=${{ marginLeft: (i * 12) + 'px' }}>
+        <span className="font-mono text-xs text-accent">0${i + 1}</span>${t(s)}
+        ${i === 3 && html`<svg className="ml-auto" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`}
+      </div>`)}
+    </div>
+  </div>`;
+}
+
+function Work() {
+  const t = useT();
+  const items = [
+    { key: 'roadside', tags: ['Flutter', 'Oracle', 'PL/SQL'], title: 'Roadside Helpline', text: 'Final-year project, team of 4. A mobile app connecting drivers with breakdown help, plus an admin dashboard. I built the back end.', href: '#roadside-helpline', cta: 'View case study',
+      visual: html`<img src="roadside-mobile.png" alt="Roadside Helpline mobile app screens" className="absolute inset-0 m-auto max-h-[88%] w-auto object-contain drop-shadow-2xl"/>` },
+    { key: 'uis', tags: ['Oracle 19c', 'PL/SQL', 'PHP'], title: 'University information system', text: 'GIFT University. The internal system behind admissions, examinations, convocation, degree verification, HR and more. I worked the modules from the database up — the schema, the PL/SQL, and the PHP forms and reports people use every day.', href: '#university-information-system', cta: 'View case study', visual: html`<img src="gift-website.jpg" alt="GIFT University website" loading="lazy" style=${{position:'absolute',inset:'0',width:'100%',height:'100%',objectFit:'cover',objectPosition:'top'}}/>` },
+    { key: 'auth', tags: ['Oracle', 'Fintech', 'Security'], title: 'Authentication & ID checks', text: 'Dollar East Exchange. The database side of API authentication, identity checks against NADRA, and role-based access to customer data.', visual: html`<${WorkVisualAuth}/>` }
+  ];
+  return html`
+  <section id="work" className="gutter mx-auto max-w-[1200px] py-20 md:py-28 scroll-mt-20">
+    <div className="reveal flex flex-wrap items-end justify-between gap-6">
+      <div><${Eyebrow}>${t('My work')}<//><h2 className="font-display font-extrabold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.04] mt-4 max-w-[18ch]">${t("Take a look at what I've built")}</h2></div>
+      <a href=${GITHUB} target="_blank" rel="noopener" className="btn btn-ghost"><${GhIcon}/> ${t('Browse my GitHub')} <${Arrow}/></a>
+    </div>
+    <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      ${items.map((it, i) => html`<article key=${it.key} className=${'reveal work-card card p-4 flex flex-col gap-5' + (i === 0 ? ' md:col-span-2 lg:col-span-1' : '')}>
+        <div className="work-img"><div className="absolute inset-0">${it.visual}</div></div>
+        <div className="px-2 pb-2 flex flex-col gap-3 flex-1">
+          <div className="flex flex-wrap gap-2">${it.tags.map(tag => html`<span key=${tag} className="text-xs font-mono rounded-full border border-line px-2.5 py-1 text-muted">${t(tag)}</span>`)}</div>
+          <h3 className="font-display text-2xl font-bold">${t(it.title)}</h3>
+          <p className="text-muted leading-relaxed">${t(it.text)}</p>
+          ${it.href
+            ? html`<a href=${it.href} className="mt-auto pt-2 inline-flex items-center gap-2 font-medium text-accent">${t(it.cta)} <${Arrow}/></a>`
+            : html`<div className="mt-auto pt-2 inline-flex items-center gap-2 text-sm text-muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>${t('Confidential — summary only')}</div>`}
+        </div>
+      </article>`)}
+    </div>
+  </section>`;
+}
+
+function Experience() {
+  const t = useT();
+  const jobs = [
+    { when: '10/2023 – 06/2026', role: 'Software Engineer (Oracle Database)', org: 'Soft Shack (Pvt.) Ltd. · Gujranwala, Pakistan · full-time', groups: [
+      ['GIFT University', ['Requirement meetings with deans and management, turned into database designs.', 'Built new modules from scratch, such as the alumni module, tested with real data.', 'Automated the convocation process in the student database.', 'Cleaned student data with PL/SQL scripts and validation rules, cutting data-entry errors by about 30%.', 'Added triggers and audit tables so every change to sensitive records can be traced.', 'Tuned slow queries with indexing and rewrites, cutting retrieval time by about 25%.', 'Did full-stack web development in PHP, HTML, CSS and JavaScript, from the Oracle back end to the browser.']],
+      ['Dollar East Exchange (fintech)', ['Built the database side of user authentication for the company API.', 'Wrote procedures for identity checks against NADRA, Pakistan’s national ID database.', 'Set up role-based access to customer and transaction data.']],
+      ['Documentation & desktop', ['Documented databases with flowcharts, data flow diagrams and indexing notes.', 'Built and maintained forms and reports in PowerBuilder 12.5.']]
+    ] },
+    { when: '2022 – 2026', role: 'Web & Database Developer', org: 'Codverge Solutions · Pakistan · remote, part-time', groups: [
+      ['', ['Built and maintained websites for small business clients in PHP and WordPress.', 'Wrote PL/SQL and Oracle back-end code for client projects.']]
+    ] }
+  ];
+  return html`
+  <section id="experience" className="py-20 md:py-28 bg-surface border-y border-line scroll-mt-20">
+    <div className="gutter mx-auto max-w-[1200px] grid lg:grid-cols-[1fr_1.6fr] gap-12">
+      <div className="reveal lg:sticky lg:top-28 self-start">
+        <${Eyebrow}>${t('Experience')}<//>
+        <h2 className="font-display font-extrabold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.04] mt-4">${t("Where I've done the work")}</h2>
+        <p className="mt-5 text-muted max-w-[38ch]">${t('Almost three years of Oracle in production, plus four years of part-time web work alongside study.')}</p>
+      </div>
+      <ol className="relative grid gap-10 border-l border-line pl-8">
+        ${jobs.map(j => html`<li key=${j.role} className="reveal relative">
+          <span className="tl-dot absolute -left-[39px] top-2"></span>
+          <div className="font-mono text-sm text-accent">${j.when}</div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold mt-1">${t(j.role)}</h3>
+          <div className="text-muted mt-1">${t(j.org)}</div>
+          <div className="mt-5 grid gap-5">
+            ${j.groups.map(([g, list]) => html`<div key=${g || 'x'} className="card p-5 bg-bg">
+              ${g && html`<div className="text-sm font-semibold text-sky mb-3">${t(g)}</div>`}
+              <ul className="grid gap-2 text-muted">${list.map(b => html`<li key=${b} className="flex gap-3"><span className="text-accent mt-[3px]">▹</span><span>${t(b)}</span></li>`)}</ul>
+            </div>`)}
+          </div>
+        </li>`)}
+      </ol>
+    </div>
+  </section>`;
+}
+
+function Education() {
+  const t = useT();
+  return html`
+  <section id="education" className="gutter mx-auto max-w-[1200px] py-20 md:py-28 scroll-mt-20">
+    <div className="reveal"><${Eyebrow}>${t('Education')}<//><h2 className="font-display font-extrabold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.04] mt-4">${t('Study & languages')}</h2></div>
+    <div className="mt-12 grid md:grid-cols-3 gap-5">
+      <article className="reveal card p-7 flex flex-col gap-3">
+        <div className="font-mono text-sm text-accent">${t('since 10/2026')}</div>
+        <h3 className="font-display text-2xl font-bold">MA Interactive Media</h3>
+        <p className="text-muted">${t('University of Applied Sciences Upper Austria, Hagenberg Campus. Full-time, expected 2028.')}</p>
+      </article>
+      <article className="reveal card p-7 flex flex-col gap-3">
+        <div className="font-mono text-sm text-accent">2019 – 2023</div>
+        <h3 className="font-display text-2xl font-bold">BSc (Hons) Software Engineering</h3>
+        <p className="text-muted">${t('GIFT University, Gujranwala. CGPA 3.76 / 4.00, second highest in the batch.')}</p>
+        <a href="documents/Abdul_Haseeb_Degree_public.pdf" target="_blank" rel="noopener" className="mt-auto pt-2 inline-flex items-center gap-2 font-medium text-accent">${t('View degree & CGPA letter (PDF)')} <${Arrow}/></a>
+      </article>
+      <article className="reveal card p-7 flex flex-col gap-4">
+        <div className="font-mono text-sm text-accent">${t('Languages')}</div>
+        ${[['Urdu', 'Native', 100], ['English', 'B2 · used daily', 75], ['German', 'A1 · learning', 22]].map(([l, d, w]) => html`<div key=${l}>
+          <div className="flex justify-between text-sm"><span className="font-semibold">${t(l)}</span><span className="text-muted">${t(d)}</span></div>
+          <div className="mt-2 h-1.5 rounded-full bg-raised overflow-hidden"><div className="h-full rounded-full bg-accent" style=${{ width: w + '%' }}></div></div>
+        </div>`)}
+      </article>
+    </div>
+  </section>`;
+}
+
+function Painting() {
+  const t = useT();
+  const arts = [
+    { src: 'art-mosque.jpg', title: 'Mosque & calligraphy', medium: 'Acrylic on canvas' },
+    { src: 'art-tree.jpg', title: 'Blossom over an old house', medium: 'Acrylic on canvas' },
+    { src: 'art-dervish.jpg', title: 'Whirling dervish', medium: 'Graphite on paper' },
+    { src: 'art-face.jpg', title: 'Portrait study', medium: 'Ballpoint pen' }
+  ];
+  const n = arts.length;
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const go = d => setI(p => (p + d + n) % n);
+  useEffect(() => {
+    if (paused || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = setInterval(() => setI(p => (p + 1) % n), 5000);
+    return () => clearInterval(id);
+  }, [paused, n]);
+  return html`
+  <section id="painting" className="py-20 md:py-28 bg-surface border-y border-line scroll-mt-20">
+    <div className="gutter mx-auto max-w-[1200px] grid lg:grid-cols-[1.4fr_1fr] gap-12 items-center">
+      <div className="reveal min-w-0 order-2 lg:order-1">
+        <${Eyebrow}>${t('Off the canvas')}<//>
+        <h2 className="font-display font-semibold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.02] mt-4">${t('I paint, too.')}</h2>
+        <p className="mt-5 text-muted text-lg leading-relaxed max-w-[46ch]">${t('Away from the screen I paint and draw. It is where I slow down, mix a colour until it is right, and look hard at how things are actually made. The same eye for composition, contrast and patience goes straight back into the interfaces and data models I build.')}</p>
+        <div className="mt-8 flex flex-wrap gap-2">
+          ${[...new Set(arts.map(a => a.medium))].map(m => html`<span key=${m} className="text-xs font-mono rounded-full border border-line px-3 py-1.5 text-muted">${t(m)}</span>`)}
+        </div>
+      </div>
+      <div className="reveal order-1 lg:order-2" style=${{ width: '100%', maxWidth: '340px', marginInline: 'auto' }}>
+        <figure className="framed pcar p-0 m-0" onMouseEnter=${() => setPaused(true)} onMouseLeave=${() => setPaused(false)}>
+          <div className="pcar-view">
+            ${arts.map((a, idx) => html`<img key=${a.src} src=${a.src} alt=${a.title} loading="lazy" className=${'pcar-img' + (idx === i ? ' on' : '')}/>`)}
+            <button className="pcar-nav prev" onClick=${() => go(-1)} aria-label="Previous painting"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button className="pcar-nav next" onClick=${() => go(1)} aria-label="Next painting"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+            <figcaption className="pcar-cap"><span className="t">${t(arts[i].title)}</span><span className="m">${t(arts[i].medium)}</span></figcaption>
+          </div>
+          <div className="pcar-dots">
+            ${arts.map((a, idx) => html`<button key=${idx} className=${'pcar-dot' + (idx === i ? ' on' : '')} onClick=${() => setI(idx)} aria-label=${'Show ' + a.title}></button>`)}
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>`;
+}
+
+function Contact() {
+  const t = useT();
+  const [copied, setCopied] = useState(false);
+  const emailRef = useRef(null);
+  const copy = () => {
+    const done = () => { setCopied(true); setTimeout(() => setCopied(false), 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(emailRef.current); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(EMAIL).then(done, fallback); } catch (e) { fallback(); }
+  };
+  return html`
+  <section id="contact" className="gutter mx-auto max-w-[1200px] pb-20 md:pb-28 scroll-mt-20">
+    <div className="reveal card relative overflow-hidden p-8 md:p-14 grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
+      <div className="glow absolute -bottom-40 -left-20 w-[520px] h-[520px] pointer-events-none" aria-hidden="true"></div>
+      <div className="relative min-w-0">
+        <${Eyebrow}>${t('Contact')}<//>
+        <h2 className="font-display font-extrabold tracking-tight text-[clamp(34px,5vw,64px)] leading-[1.02] mt-4">${t("Interested in working together? Let's talk.")}</h2>
+        <p className="mt-5 text-muted text-lg max-w-[46ch]">${t('Open to part-time roles in database, backend, frontend or web development in Upper Austria or remote.')}</p>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a href=${'mailto:' + EMAIL} className="btn btn-primary"><${MailIcon}/> ${t('Email me')} <${Arrow}/></a>
+          <button type="button" onClick=${copy} className="btn btn-ghost font-mono !text-sm"><span ref=${emailRef} className="select-all">${EMAIL}</span><span className="text-accent">${copied ? t('Copied') : t('Copy')}</span></button>
+        </div>
+      </div>
+      <div className="relative card bg-bg p-6 flex items-center gap-5">
+        <img src="photo.jpg" alt="" width="80" height="100" className="w-20 h-24 rounded-2xl object-cover object-top" />
+        <div className="min-w-0">
+          <div className="font-display text-xl font-bold">Abdul Haseeb</div>
+          <div className="text-sm text-muted">${t('Oracle Database & Software Developer')}</div>
+          <div className="text-sm text-muted">${t('Hagenberg, Austria')}</div>
+          <div className="mt-3 flex gap-2">
+            <a href=${GITHUB} target="_blank" rel="noopener" aria-label="GitHub" className="w-9 h-9 grid place-items-center rounded-full border border-line hover:border-accent hover:text-accent transition-colors"><${GhIcon}/></a>
+            <a href=${LINKEDIN} target="_blank" rel="noopener" aria-label="LinkedIn" className="w-9 h-9 grid place-items-center rounded-full border border-line hover:border-accent hover:text-accent transition-colors"><${InIcon}/></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function Footer() {
+  const t = useT();
+  return html`<footer className="border-t border-line">
+    <div className="gutter mx-auto max-w-[1200px] py-8 flex flex-wrap items-center gap-4 justify-between text-sm text-muted">
+      <a href="#top" className="font-display text-lg font-extrabold text-ink">Abdul<span className="text-accent">.</span></a>
+      <span>${t('© 2026 Abdul Haseeb · Hagenberg, Austria')}</span>
+      <div className="flex gap-5"><a href=${GITHUB} target="_blank" rel="noopener" className="hover:text-ink">GitHub</a><a href=${LINKEDIN} target="_blank" rel="noopener" className="hover:text-ink">LinkedIn</a><a href=${'mailto:' + EMAIL} className="hover:text-ink">${t('Email')}</a></div>
+    </div>
+  </footer>`;
+}
+
+function ProjectPage() {
+  const t = useT();
+  const built = [
+    ['Orders', 'Service requests', 'Drivers request fuel, a tyre change or a mechanic, and the request is stored and routed as an order.'],
+    ['Location', 'Live location tracking', 'The driver’s and helper’s positions are tracked so help can find the car.'],
+    ['Payments', 'Payments', 'Each completed job is recorded with its payment.'],
+    ['Feedback', 'Ratings', 'Drivers rate the vendor after the job is done.']
+  ];
+  return html`
+  <main className="gutter mx-auto max-w-[1200px] py-10 md:py-14">
+    <a href="#work" className="inline-flex items-center gap-2 text-muted hover:text-ink"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> ${t('Back to all work')}</a>
+    <section className="reveal relative overflow-hidden card mt-6 p-8 md:p-14">
+      <div className="glow absolute -top-40 -right-20 w-[520px] h-[520px] pointer-events-none" aria-hidden="true"></div>
+      <div className="relative">
+        <${Eyebrow}>${t('Case study · Final-year project · 07/2022 – 10/2023')}<//>
+        <h1 className="font-display font-extrabold tracking-tight text-[clamp(42px,7vw,88px)] leading-[0.98] mt-4">Roadside Helpline</h1>
+        <p className="mt-5 text-lg md:text-xl text-muted max-w-[52ch]">${t('A mobile app that connects drivers with breakdown help (fuel delivery, tyre repair and mechanics), with a web dashboard for admins.')}</p>
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+          ${[['Team', '4 people'], ['My role', 'Back end & database'], ['Stack', 'Flutter · Oracle · PL/SQL'], ['Where', 'GIFT University']].map(([k, v]) => html`<div key=${k} className="rounded-2xl border border-line bg-bg p-4"><div className="text-xs font-mono text-muted">${t(k)}</div><div className="mt-1 font-medium">${t(v)}</div></div>`)}
+        </div>
+        <a href="https://github.com/abduuls/Roadside_Helpline" target="_blank" rel="noopener" className="btn btn-primary mt-8"><${GhIcon}/> ${t('View code on GitHub')} <${Arrow}/></a>
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('Demo')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('See it in action')}</h2>
+      <div className="card p-3 mt-6">
+        <video controls playsInline preload="metadata" poster="roadside-poster.jpg" className="w-full aspect-video rounded-2xl">
+          <source src="roadside-demo.mp4" type="video/mp4"/>
+        </video>
+        <p className="px-3 py-3 text-sm text-muted">${t('Screen recording, about 4 minutes, no sound: sign-up, choosing a service, live tracking on the map and the admin panel.')}</p>
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('Screens')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('Mobile app and dashboard')}</h2>
+      <div className="mt-6 grid md:grid-cols-[1fr_1.15fr] gap-5">
+        <figure className="card p-6 flex flex-col gap-5 m-0">
+          <img src="roadside-mobile.png" alt="Mobile app: service list, sign-in and vendor list" width="502" height="495" className="w-full h-auto drop-shadow-2xl"/>
+          <figcaption><div className="font-display text-xl font-bold">${t('Mobile application')}</div><div className="text-muted">${t('Drivers pick a service, sign in and choose a nearby rated vendor.')}</div></figcaption>
+        </figure>
+        <figure className="card p-6 flex flex-col justify-between gap-5 m-0">
+          <img src="roadside-dashboard.png" alt="Admin dashboard login page on a laptop" width="593" height="340" className="w-full h-auto drop-shadow-2xl my-auto"/>
+          <figcaption><div className="font-display text-xl font-bold">${t('Dashboard')}</div><div className="text-muted">${t('Admins log in to a web dashboard to manage the service.')}</div></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('What I built')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('The back end')}</h2>
+      <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        ${built.map(([k, title, d], i) => html`<div key=${k} className="card p-6"><div className="font-mono text-sm text-accent">0${i + 1} · ${t(k)}</div><h3 className="font-display text-xl font-bold mt-3">${t(title)}</h3><p className="text-muted mt-2">${t(d)}</p></div>`)}
+      </div>
+    </section>
+  </main>`;
+}
+
+function UisPage() {
+  const t = useT();
+  const steps = [
+    ['Database', 'Design the schema', 'I modelled the tables, keys and relationships for the module first, so every piece of data had one correct home.'],
+    ['PL/SQL', 'Write the procedures', 'The real work — validation, calculations and the heavy queries — went into Oracle as PL/SQL packages and procedures.'],
+    ['PHP', 'Build the pages', 'On top of that I built the PHP forms people fill in and the reports they read back out.']
+  ];
+  const modules = ['Admission', 'Examination', 'Convocation', 'Degree verification', 'Student Affairs', 'HRM', 'Transport', 'Accounts', 'Centres', 'CMS', 'MIS', 'Services'];
+  const detail = [
+    ['Convocation', 'Registering graduating students and their guests, working out who is eligible, and producing the lists, working sheets and registration reports the ceremony runs on.'],
+    ['Degree verification', 'Checking a graduate’s degree against the university’s own records when an employer or body asks, and keeping a record of each verification.']
+  ];
+  return html`
+  <main className="gutter mx-auto max-w-[1200px] py-10 md:py-14">
+    <a href="#work" className="inline-flex items-center gap-2 text-muted hover:text-ink"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> ${t('Back to all work')}</a>
+    <section className="reveal relative overflow-hidden card mt-6 p-8 md:p-14">
+      <div className="glow absolute -top-40 -right-20 w-[520px] h-[520px] pointer-events-none" aria-hidden="true"></div>
+      <div className="relative">
+        <${Eyebrow}>${t('Case study · Soft Shack · 10/2023 – 06/2026')}<//>
+        <h1 className="font-display font-extrabold tracking-tight text-[clamp(38px,6.5vw,80px)] leading-[1.0] mt-4">${t('University Information System')}</h1>
+        <p className="mt-5 text-lg md:text-xl text-muted max-w-[56ch]">${t('The system GIFT University runs on — admissions, examinations, convocation, degree verification, HR, transport and accounts, all in one place. I worked the Oracle back end and the PHP pages behind several of its modules.')}</p>
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+          ${[['Where', 'GIFT University'], ['My role', 'Back end & PHP'], ['Stack', 'Oracle · PL/SQL · PHP'], ['Scope', 'Multiple modules']].map(([k, v]) => html`<div key=${k} className="rounded-2xl border border-line bg-bg p-4"><div className="text-xs font-mono text-muted">${t(k)}</div><div className="mt-1 font-medium">${t(v)}</div></div>`)}
+        </div>
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('How it started')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('From a meeting to a module')}</h2>
+      <div className="mt-6 grid md:grid-cols-2 gap-6 max-w-[90ch]">
+        <p className="text-muted leading-relaxed">${t("Each module started as a conversation. I sat with the people who would actually use it — the deans, the IT director and the office behind each process — to understand what they needed and brainstorm how it should work. For convocation that meant the examination office and the team running the ceremony; for degree verification, the people who vouch for a graduate's record.")}</p>
+        <p className="text-muted leading-relaxed">${t('Once we agreed on the requirements, the shape of the data usually became clear. I turned those conversations into a design and built it from the database up, then came back to the same stakeholders to check it against what they had in mind.')}</p>
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('My process')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('Database first, then up')}</h2>
+      <div className="mt-6 grid sm:grid-cols-3 gap-4">
+        ${steps.map(([k, title, d], i) => html`<div key=${k} className="card p-6"><div className="font-mono text-sm text-accent">0${i + 1} · ${t(k)}</div><h3 className="font-display text-xl font-bold mt-3">${t(title)}</h3><p className="text-muted mt-2">${t(d)}</p></div>`)}
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('Scope')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('Across the system')}</h2>
+      <p className="mt-4 text-muted leading-relaxed max-w-[60ch]">${t('The system spans the whole university. I contributed back-end and pages across several of its modules, with convocation and degree verification the two I spent most time on.')}</p>
+      <div className="mt-6 flex flex-wrap gap-3">
+        ${modules.map(m => html`<span key=${m} style=${{border: '1px solid var(--line)', background: 'var(--bg)', borderRadius: '999px', padding: '8px 16px', fontSize: '14px'}}>${t(m)}</span>`)}
+      </div>
+      <div className="mt-8 grid md:grid-cols-2 gap-4">
+        ${detail.map(([title, d]) => html`<div key=${title} className="card p-6"><h3 className="font-display text-xl font-bold">${t(title)}</h3><p className="text-muted mt-2 leading-relaxed">${t(d)}</p></div>`)}
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('Inside the system')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('A look under the hood')}</h2>
+      <div className="mt-6 grid md:grid-cols-2 gap-5">
+        <figure className="card p-3 m-0">
+          <img src="uis-modules.png" alt="UIS admin console showing the module navigation and the convocation sub-screens" loading="lazy" className="w-full h-auto rounded-2xl"/>
+          <figcaption className="px-3 py-3 text-sm text-muted">${t('The admin console. Convocation alone runs across eight screens — eligibility, working sheets, lists and the final registration.')}</figcaption>
+        </figure>
+        <figure className="card p-3 m-0">
+          <img src="uis-convocation.png" alt="Convocation registration screen with the personal columns masked" loading="lazy" className="w-full h-auto rounded-2xl"/>
+          <figcaption className="px-3 py-3 text-sm text-muted">${t('A live registration screen. Roll numbers, names, CNICs and phone numbers are masked here — this is a public page.')}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section className="reveal mt-16">
+      <${Eyebrow}>${t('Alongside it')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(28px,4vw,44px)] mt-3">${t('The public website')}</h2>
+      <figure className="card p-3 mt-6 m-0">
+        <img src="gift-website.jpg" alt="GIFT University public website" loading="lazy" className="w-full h-auto rounded-2xl"/>
+        <figcaption className="px-3 py-3 text-sm text-muted">${t("GIFT University's public website, part of the same family of applications that sits around the internal system.")}</figcaption>
+      </figure>
+    </section>
+  </main>`;
+}
+
+function Milestones() {
+  const lang = useContext(LangCtx);
+  const t = useT();
+  const ref = useRef(null);
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    const wall = root.querySelector('.mw-wall');
+    const fit = root.querySelector('.mw-fit');
+    const stage = root.querySelector('.mw-stage');
+    const note = root.querySelector('.mw-note');
+    const shelf = root.querySelector('.mw-shelf');
+    wall.innerHTML = '';
+    const WALL = [
+      [{ t: 'English', thin: true, s: 'Comfortable studying and working in English.' }, { t: 'Communication', thin: true }, { t: 'Teamwork', thin: true }, { t: 'Problem solving', thin: true }, { t: 'Curiosity', thin: true }],
+      [{ t: 'Topper', s: 'Finished near the top of my class.' }, { t: 'University societies', s: 'Active in campus societies.' }, { t: 'Volunteer work', s: 'Gave my time where it helped.' }, { t: 'Painting', s: 'My way to switch off — there is a corner of this site for it.' }],
+      [{ t: 'Scholarship', s: 'Studied on merit support.' }, { t: 'McDonald’s', s: 'A part-time job — first paycheck, first lessons in showing up.' }, { t: 'Part-time web dev', s: 'Built sites for small clients while studying.' }],
+      [{ t: 'BS Software Engineering', c: 'sky', s: 'My degree at GIFT University.' }, { t: 'Roadside Helpline', c: 'sky', s: 'Built the back end for a breakdown-help app — my final-year project.' }, { t: 'Oracle & PL/SQL', s: 'The stack I went deep on.' }],
+      [{ t: 'Graduation', c: 'gold', s: 'Degree in hand.' }],
+      [{ t: 'First job', c: 'gold', y: '2023', s: 'Oracle developer at Soft Shack.' }, { t: 'Fintech', s: 'Authentication and NADRA checks for Dollar East Exchange.' }, { t: 'UIS project', s: 'Worked the university system’s modules from the database up.' }],
+      [{ t: 'Abroad', c: 'gold', s: 'Moved to Austria.' }, { t: 'FH Hagenberg', c: 'sky', s: 'Studying in Hagenberg, Austria.' }]
+    ];
+    let seed = 7;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const blocks = [];
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    function select(el, d) {
+      blocks.forEach(b => b.classList.toggle('is-selected', b === el));
+      note.innerHTML = '<span class="t">' + esc(t(d.t)) + '</span>' + (d.y ? '<span class="y">' + esc(d.y) + '</span>' : '') + '<p>' + esc(t(d.s || 'One more block in the wall — small on its own, but the ones above lean on it.')) + '</p>';
+    }
+    WALL.forEach((row, ri) => {
+      const rowEl = document.createElement('div'); rowEl.className = 'mw-row';
+      row.forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'mw-blk' + (d.thin ? ' thin' : '') + (d.c ? ' ' + d.c : '');
+        el.appendChild(document.createTextNode(t(d.t)));
+        if (d.y) { const yr = document.createElement('span'); yr.className = 'yr'; yr.textContent = d.y; el.appendChild(yr); }
+        el.style.setProperty('--w', Math.round(112 + rnd() * 54) + 'px');
+        el.style.setProperty('--r', ((rnd() - .5) * 1.4).toFixed(2) + 'deg');
+        el.style.setProperty('--dy', ((rnd() - .5) * 2).toFixed(1) + 'px');
+        el.dataset.row = ri;
+        el.addEventListener('click', () => select(el, d));
+        rowEl.appendChild(el); blocks.push(el);
+      });
+      wall.appendChild(rowEl);
+    });
+    note.innerHTML = '<span class="t">' + esc(t('Pick a block')) + '</span><p>' + esc(t('Each one is a moment that held up everything after it.')) + '</p>';
+    function resize() {
+      fit.style.transform = 'none';
+      const natural = wall.scrollWidth + 40;
+      const s = Math.min(1, stage.clientWidth / natural);
+      fit.style.width = natural + 'px';
+      fit.style.marginLeft = 'calc(50% - ' + (natural / 2) + 'px)';
+      fit.style.transform = 'scale(' + s + ')';
+      stage.style.height = fit.offsetHeight * s + 'px';
+      if (shelf) { shelf.style.width = (wall.scrollWidth - 8) + 'px'; }
+    }
+    const ro = new ResizeObserver(resize); ro.observe(stage);
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const timers = [];
+    function build() {
+      blocks.forEach(b => { b.classList.remove('fallen', 'is-selected', 'dropping'); b.classList.add('pending'); });
+      if (reduced) { blocks.forEach(b => b.classList.remove('pending')); return; }
+      void wall.offsetWidth;
+      blocks.forEach((b, i) => {
+        timers.push(setTimeout(() => {
+          b.classList.add('dropping'); b.classList.remove('pending');
+          timers.push(setTimeout(() => b.classList.remove('dropping'), 600));
+        }, 120 + i * 45));
+      });
+    }
+    function knock() {
+      const wr = wall.getBoundingClientRect();
+      const scale = wr.width / wall.offsetWidth || 1;
+      const table = wr.bottom;
+      blocks.forEach(b => {
+        const r = b.getBoundingClientRect();
+        const progress = (r.left - wr.left) / wr.width;
+        const height = (table - r.bottom) / scale;
+        b.classList.remove('is-selected');
+        b.style.setProperty('--fx', (30 + rnd() * 120) + 'px');
+        b.style.setProperty('--fy', (height - 4 - rnd() * 18) + 'px');
+        b.style.setProperty('--fr', ((rnd() < .75 ? 1 : -1) * (40 + rnd() * 110)).toFixed(0) + 'deg');
+        b.style.setProperty('--delay', (progress * 1.3 + (1 - height / 500) * .15).toFixed(2) + 's');
+        b.style.setProperty('--fall-t', (0.45 + Math.sqrt(Math.max(height, 0)) / 40).toFixed(2) + 's');
+        b.classList.add('fallen');
+      });
+      note.innerHTML = '<span class="t">' + esc(t('Down it goes…')) + '</span><p>' + esc(t('And every block is still here. Hit Rebuild.')) + '</p>';
+    }
+    const kb = root.querySelector('.mw-knock'), bb = root.querySelector('.mw-build');
+    kb.addEventListener('click', knock); bb.addEventListener('click', build);
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { resize(); build(); });
+    resize();
+    return () => { ro.disconnect(); timers.forEach(clearTimeout); kb.removeEventListener('click', knock); bb.removeEventListener('click', build); };
+  }, [lang]);
+  return html`
+  <section id="milestones" className="gutter mx-auto max-w-[1200px] py-20 md:py-28 scroll-mt-20">
+    <div className="reveal">
+      <${Eyebrow}>${t('Milestones')}<//>
+      <h2 className="font-display font-extrabold tracking-tight text-[clamp(32px,4.6vw,56px)] leading-[1.04] mt-4 max-w-[18ch]">${t('Every ')}<span className="goldgrad">${t('block')}</span>${t(' held up the next')}</h2>
+      <p className="text-muted mt-4 max-w-[46ch]">${t('The moments and skills that got me here, stacked into a wall. Tap a block to read it — or knock the whole thing down and watch it rebuild.')}</p>
+    </div>
+    <div className="reveal mw mt-10" ref=${ref}>
+      <div className="mw-stage"><div className="mw-fit"><div className="mw-wall"></div><div className="mw-shelf"></div></div></div>
+      <div className="mw-panel">
+        <div className="mw-note"></div>
+        <div className="mw-btns">
+          <button className="mw-knock">${t('Knock it down')}</button>
+          <button className="mw-build primary">${t('Rebuild')}</button>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function App() {
+  const [route, setRoute] = useState(location.hash.slice(1));
+  const [lang, setLang] = useState(() => {
+    try { const s = localStorage.getItem('lang'); if (s === 'en' || s === 'de') return s; } catch (e) {}
+    return (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
+  });
+  useEffect(() => {
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+  }, [lang]);
+  useEffect(() => {
+    const on = () => setRoute(location.hash.slice(1));
+    addEventListener('hashchange', on); return () => removeEventListener('hashchange', on);
+  }, []);
+  const project = route === 'roadside-helpline';
+  const uisProject = route === 'university-information-system';
+  useEffect(() => {
+    if (project || uisProject) { scrollTo(0, 0); }
+    else if (route) { const t = document.getElementById(route); if (t) t.scrollIntoView(); }
+    if (!window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-in', { y: 26, duration: .9, ease: 'power3.out', stagger: .08 });
+      gsap.from('.hero-photo', { y: 30, rotate: 2, duration: 1.1, ease: 'power3.out' });
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.from(el, { y: 40, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+      });
+    });
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, [route]);
+  return html`<${LangCtx.Provider} value=${lang}>
+    <${Nav} lang=${lang} setLang=${setLang}/>
+    ${project ? html`<${ProjectPage}/>` : uisProject ? html`<${UisPage}/>` : html`<main><${Hero}/><${About}/><${Skills}/><${Work}/><${Experience}/><${Education}/><${Milestones}/><${Painting}/><${Contact}/></main>`}
+    <${Footer}/>
+  <//>`;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App}/>`);
+})();
+</script>
+</body>
+</html>
